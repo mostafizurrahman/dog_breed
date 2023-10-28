@@ -4,7 +4,7 @@ import 'package:dog_breed/data/network/base_api_provider.dart';
 import '../data.dart';
 
 class DogImageListApi
-    extends AppBaseApi<BaseRequest, BreedListResponse, BaseErrorModel> {
+    extends AppBaseApi<BaseRequest, ImageListResponse, BaseErrorModel> {
   DogImageListApi({required final String endPoint})
       : super(
           endPoint,

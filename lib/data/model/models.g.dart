@@ -45,7 +45,9 @@ BaseErrorResponse _$BaseErrorResponseFromJson(Map<String, dynamic> json) =>
 
 BreedListResponse _$BreedListResponseFromJson(Map<String, dynamic> json) =>
     BreedListResponse(
-      message:
-          (json['message'] as List<dynamic>).map((e) => e as String).toList(),
+      message: (json['message'] as Map<String, dynamic>).map(
+        (k, e) =>
+            MapEntry(k, (e as List<dynamic>).map((e) => e as String).toList()),
+      ),
       status: json['status'] as String,
     );

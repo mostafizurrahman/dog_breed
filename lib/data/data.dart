@@ -7,3 +7,5 @@ export 'network/breed_api_provider.dart';
 export 'network/breed_list_api.dart';
 export 'network/dog_image_list_api.dart';
 export 'network/random_dog_image_api.dart';
+export 'repositories/image_remote_datasource.dart';
+export 'repositories/dog_image_repository_impl.dart';

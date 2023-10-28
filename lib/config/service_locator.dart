@@ -19,6 +19,7 @@ Future<void> initImageService({
     ),
   );
 
+  imageService.registerFactory<ImageRemoteDataSource>(() => ImageRemoteDataSourceImpl());
 
   imageService.registerFactory<ErrorResponse>(() => ErrorResponse());
   imageService.registerFactory<BaseErrorModel>(() => ErrorResponse());

@@ -1,7 +1,7 @@
 part of 'models.dart';
 
 @JsonSerializable(createToJson: false)
-class BreedListResponse extends BaseResponse<List<String>> {
+class BreedListResponse extends BaseResponse<Map<String, List<String>>> {
   BreedListResponse({required super.message, required super.status});
 
   factory BreedListResponse.fromJson(Map<String, dynamic> json) =>
