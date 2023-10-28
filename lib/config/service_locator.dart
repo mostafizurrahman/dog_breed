@@ -7,7 +7,7 @@ import 'app_config.dart';
 
 final imageService = GetIt.asNewInstance();
 Future<void> initImageService({
-  required final StreamController<NetStateModel> notifier,
+  required final StreamController<NetworkEntity> notifier,
   Map<String, dynamic> headers = const {},
 }) async {
   await imageService.reset(dispose: true);

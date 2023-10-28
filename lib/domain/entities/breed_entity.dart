@@ -5,4 +5,8 @@ class BreedEntity {
     required this.breed,
     required this.subBreed,
   });
+
+  factory BreedEntity.empty() {
+    return BreedEntity(breed: '', subBreed: '');
+  }
 }

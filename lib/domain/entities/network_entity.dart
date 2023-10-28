@@ -4,12 +4,12 @@ enum ApiStatus {
   error,
 }
 
-class NetStateModel {
+class NetworkEntity {
   final ApiStatus status;
   final String message;
   final int code;
 
-  NetStateModel({
+  NetworkEntity({
     required this.status,
     this.message = 'success',
     this.code = 200,

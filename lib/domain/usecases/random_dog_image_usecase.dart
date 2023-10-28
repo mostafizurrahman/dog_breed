@@ -1,7 +1,7 @@
 import '../domain.dart';
 
-class DogListUsecase extends BaseUseCase<DogImage?, BreedEntity> {
-  DogListUsecase();
+class RandomDogImageUsecase extends BaseUseCase<DogImage?, BreedEntity> {
+  RandomDogImageUsecase();
 
   @override
   Future<DogImage?> call(final BreedEntity input) async {

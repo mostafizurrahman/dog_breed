@@ -4,7 +4,7 @@ import 'base_error_model.dart';
 import 'base_model.dart';
 export 'base_model.dart';
 export 'base_error_model.dart';
-export 'net_state_model.dart';
+export '../../domain/entities/network_entity.dart';
 
 
 part 'base_response.dart';

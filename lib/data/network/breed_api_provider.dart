@@ -1,16 +1,15 @@
 import 'dart:async';
 import 'package:dio/dio.dart';
-import 'package:dog_breed/data/model/net_state_model.dart';
-import 'package:dog_breed/data/network/base_api_provider.dart';
+import '../../domain/domain.dart';
+import 'base_api_provider.dart';
 
 class BreedApiProvider extends BaseApiProvider {
   final String baseUrl;
 
-  final StreamController<NetStateModel> apiNotifier;
+  final StreamController<NetworkEntity> apiNotifier;
 
   final List<String> _customLoadingApis = [];
   final List<String> _customClosingApis = [];
-
 
   BreedApiProvider({
     required this.baseUrl,
@@ -36,7 +35,7 @@ class BreedApiProvider extends BaseApiProvider {
 
   void _onErrorNotifier(DioException error, handler) async {
     if (error.response?.data != null) {
-      final errorNotification = NetStateModel(
+      final errorNotification = NetworkEntity(
         status: ApiStatus.error,
         message: error.response?.data,
         code: error.response?.statusCode ?? 400,
@@ -46,7 +45,7 @@ class BreedApiProvider extends BaseApiProvider {
       //TODO : Check network connectivity here
       //Leaving it for a generic message
 
-      final netState = NetStateModel(
+      final netState = NetworkEntity(
         status: ApiStatus.error,
         message: error.message ?? 'Something went wrong!',
         code: error.response?.statusCode ?? 400,
@@ -58,7 +57,7 @@ class BreedApiProvider extends BaseApiProvider {
 
   void _onHandleResponse(Response response, handler) {
     if (!_customClosingApis.contains(response.requestOptions.path)) {
-      final complete = NetStateModel(
+      final complete = NetworkEntity(
         status: ApiStatus.complete,
         message: response.statusMessage ?? 'API calling completed',
         code: response.statusCode ?? 200,
@@ -75,7 +74,7 @@ class BreedApiProvider extends BaseApiProvider {
     if (!_customLoadingApis.contains(options.path)) {
       final msg = '${options.method.toUpperCase()} API calling started with'
           ' end-point //${options.path}';
-      final starter = NetStateModel(
+      final starter = NetworkEntity(
         status: ApiStatus.complete,
         message: msg,
         code: -1,
@@ -100,7 +99,7 @@ class BreedApiProvider extends BaseApiProvider {
     dio.interceptors.add(interceptor);
   }
 
-  void _sinkNotifierWith({required final NetStateModel notification}) {
+  void _sinkNotifierWith({required final NetworkEntity notification}) {
     apiNotifier.sink.add(notification);
   }
 
