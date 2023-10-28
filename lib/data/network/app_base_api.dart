@@ -7,13 +7,13 @@ import 'package:dog_breed/data/model/base_error_model.dart';
 import '../model/base_model.dart';
 import 'base_api_provider.dart';
 
-abstract class BaseApi<TRequest extends BaseModel, TResponse extends BaseModel,
-    TError extends BaseErrorModel> {
+abstract class AppBaseApi<TRequest extends BaseModel,
+    TResponse extends BaseModel, TError extends BaseErrorModel> {
   final String url;
   final BaseApiProvider apiProvider;
   final BaseErrorModel baseError;
 
-  BaseApi(
+  AppBaseApi(
     this.url,
     this.apiProvider,
     this.baseError,
