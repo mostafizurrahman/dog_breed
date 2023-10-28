@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:dog_breed/domain/domain.dart';
 import 'package:get_it/get_it.dart';
 import '../data/data.dart';
 import '../data/network/base_api_provider.dart';
@@ -19,7 +20,12 @@ Future<void> initImageService({
     ),
   );
 
-  imageService.registerFactory<ImageRemoteDataSource>(() => ImageRemoteDataSourceImpl());
+  imageService.registerFactory<ImageRemoteDataSource>(
+    () => ImageRemoteDataSourceImpl(),
+  );
+  imageService.registerFactory<DogBreedImageRepository>(
+    () => DogImageRepositoryImpl(),
+  );
 
   imageService.registerFactory<ErrorResponse>(() => ErrorResponse());
   imageService.registerFactory<BaseErrorModel>(() => ErrorResponse());
