@@ -3,8 +3,6 @@ import 'package:dio/dio.dart';
 abstract class BaseErrorModel {
   DioException? dioException;
 
-  String getMessage({required String lang});
-
   BaseErrorModel generate(dynamic error) {
     if (error is DioException) {
       if (error.type == DioExceptionType.receiveTimeout ||
@@ -19,7 +17,8 @@ abstract class BaseErrorModel {
     return this;
   }
 
-  void setDioError(DioError error) => dioException = error;
+  void setDioError(DioException error) => dioException = error;
 
   void generateError(Map<String, dynamic>? data);
 }
+
