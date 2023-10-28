@@ -44,5 +44,5 @@ class BaseErrorResponse extends BaseModel<BaseErrorResponse> {
       );
 
   @override
-  Map<String, dynamic> toJson() => {};
+  Map<String, dynamic> toJson() => const {};
 }

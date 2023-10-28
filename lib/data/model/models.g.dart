@@ -42,3 +42,10 @@ BaseErrorResponse _$BaseErrorResponseFromJson(Map<String, dynamic> json) =>
       message: json['message'] as String?,
       code: json['code'] as String?,
     );
+
+BreedListResponse _$BreedListResponseFromJson(Map<String, dynamic> json) =>
+    BreedListResponse(
+      message:
+          (json['message'] as List<dynamic>).map((e) => e as String).toList(),
+      status: json['status'] as String,
+    );
