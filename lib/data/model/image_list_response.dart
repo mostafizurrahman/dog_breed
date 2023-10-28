@@ -6,4 +6,9 @@ class ImageListResponse extends BaseResponse<List<String>> {
 
   factory ImageListResponse.fromJson(Map<String, dynamic> json) =>
       _$ImageListResponseFromJson(json);
+
+  DogList toEntity() => DogList(
+        dogs: super.message,
+        status: super.status,
+      );
 }
