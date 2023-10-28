@@ -37,7 +37,7 @@ class BreedApiProvider extends BaseApiProvider {
     if (error.response?.data != null) {
       final errorNotification = NetworkEntity(
         status: ApiStatus.error,
-        message: error.response?.data,
+        message: error.response?.data.toString() ?? 'Error occurred',
         code: error.response?.statusCode ?? 400,
       );
       _sinkNotifierWith(notification: errorNotification);

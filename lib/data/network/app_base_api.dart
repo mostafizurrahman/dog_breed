@@ -9,12 +9,12 @@ import 'base_api_provider.dart';
 
 abstract class AppBaseApi<TRequest extends BaseModel,
     TResponse extends BaseModel, TError extends BaseErrorModel> {
-  final String url;
+  final String endPoint;
   final BaseApiProvider apiProvider;
   final BaseErrorModel baseError;
-
+  String get url => '${apiProvider.dio.options.baseUrl}$endPoint';
   AppBaseApi(
-    this.url,
+    this.endPoint,
     this.apiProvider,
     this.baseError,
   );
