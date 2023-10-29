@@ -1,9 +1,6 @@
-import 'package:dog_breed/domain/domain.dart';
 import 'package:dog_breed/ui/widgets/image_view.dart';
 import 'package:dog_breed/ui/widgets/theme_provider.dart';
-
 import 'package:flutter/material.dart';
-
 import '../widgets/dog_scaffold.dart';
 
 class DogRandomImagePage extends StatefulWidget {
@@ -26,15 +23,15 @@ class DogRandomImagePage extends StatefulWidget {
 }
 
 class _ImageListState extends State<DogRandomImagePage> {
-  late final double dimension;
+
   @override
   void initState() {
     super.initState();
-    dimension = MediaQuery.of(context).size.width - 48;
   }
 
   @override
   Widget build(BuildContext context) {
+    final double dimension = MediaQuery.of(context).size.width - 48;
     return DogScaffold(
       title: widget.title,
       body: Container(

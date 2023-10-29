@@ -13,5 +13,5 @@ class RandomDogImageApi
 
   @override
   BaseModel mapResponse(Map<String, dynamic>? responseJson) =>
-      BreedListResponse.fromJson(responseJson ?? const {});
+      RandomImageResponse.fromJson(responseJson ?? const {});
 }

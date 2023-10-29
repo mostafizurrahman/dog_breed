@@ -25,18 +25,46 @@ class ImageView extends StatelessWidget {
             width: dimension,
             height: dimension,
             imageUrl: imageUrl,
-            progressIndicatorBuilder: (context, url, downloadProgress) =>
-                Padding(
-              padding: const EdgeInsets.all(6),
-              child: Center(
-                child:
-                    CircularProgressIndicator(value: downloadProgress.progress),
-              ),
-            ),
-            errorWidget: (context, url, error) => const Icon(Icons.error),
+            progressIndicatorBuilder: ThemeProvider.getIndicator,
+            errorWidget: ThemeProvider.geErrorView,
           ),
         ),
       ),
     );
   }
+}
+
+class NetworkDogImage extends StatelessWidget {
+  final String imageUrl;
+  final double fixedWidth;
+  const NetworkDogImage({
+    super.key,
+    required this.imageUrl,
+    this.fixedWidth = 50,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6,),
+      child: Container(
+        decoration: ThemeProvider.shadow,
+        child: ClipRRect(
+          borderRadius: const BorderRadius.all(Radius.circular(8)),
+          child: SizedBox(
+            width: fixedWidth,
+            child: CachedNetworkImage(
+              width: fixedWidth,
+              fit: BoxFit.cover,
+              imageUrl: imageUrl,
+              progressIndicatorBuilder: ThemeProvider.getIndicator,
+              errorWidget: ThemeProvider.geErrorView,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+
 }
