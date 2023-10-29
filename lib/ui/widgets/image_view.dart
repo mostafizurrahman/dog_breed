@@ -15,6 +15,7 @@ class ImageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final key = imageUrl.split('\/').last;
     return Container(
       decoration: ThemeProvider.circle,
       child: ClipRRect(
@@ -25,6 +26,7 @@ class ImageView extends StatelessWidget {
             width: dimension,
             height: dimension,
             imageUrl: imageUrl,
+            cacheKey: key,
             progressIndicatorBuilder: ThemeProvider.getIndicator,
             errorWidget: ThemeProvider.geErrorView,
           ),
