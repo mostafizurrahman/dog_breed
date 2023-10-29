@@ -60,13 +60,13 @@ class ThemeProvider {
             child: WillPopScope(
               onWillPop: () => Future.value(false),
               child: Container(
-                color: Colors.white,
                 width: 120,
                 height: 120,
                 decoration: ThemeProvider.shadow,
                 child: Center(
                   child: Column(
                     children: [
+                      const SizedBox(height: 24),
                       ThemeProvider.progressView,
                       const SizedBox(height: 12),
                       const Text('Loading Data....')

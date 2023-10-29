@@ -93,9 +93,9 @@ class _BreedDashboardState extends State<BreedDashboardPage> {
   }
 
   String _getTitle(final BreedEquatableState state) {
-    String title = 'Image of Breed :: ${state.breed?.breed}';
+    String title = 'Breed : ${state.breed?.breed}';
     if (state.breed?.subBreed.isNotEmpty ?? false) {
-      title = '$title - sub-breed : ${state.breed?.subBreed}';
+      title = '$title - SubBreed : ${state.breed?.subBreed}';
     }
     return title;
   }

@@ -33,16 +33,20 @@ class _ImageListState extends State<DogRandomImagePage> {
   Widget build(BuildContext context) {
     final double dimension = MediaQuery.of(context).size.width - 48;
     return DogScaffold(
-      title: widget.title,
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height - 120,
-        decoration: ThemeProvider.shadow,
-        child: ImageView(
-          imageUrl: widget.imagePath,
-          dimension: dimension,
+      title: 'Random Image',
+      body:  Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(widget.title),
+            SizedBox(height: 12),
+            NetworkDogImage(
+              fixedWidth: dimension - 24,
+              imageUrl: widget.imagePath,
+            ),
+          ],
         ),
-      ),
+      ) ,
     );
   }
 }

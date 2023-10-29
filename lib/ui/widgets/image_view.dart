@@ -45,6 +45,7 @@ class NetworkDogImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final key = imageUrl.split('\/').last;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6,),
       child: Container(
@@ -54,6 +55,7 @@ class NetworkDogImage extends StatelessWidget {
           child: SizedBox(
             width: fixedWidth,
             child: CachedNetworkImage(
+              cacheKey:  key,
               width: fixedWidth,
               fit: BoxFit.cover,
               imageUrl: imageUrl,
