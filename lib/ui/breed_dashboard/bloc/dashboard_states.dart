@@ -6,7 +6,7 @@ abstract class DogBreedState extends Equatable {
   List<Object?> get props => [DateTime.now().millisecondsSinceEpoch];
 }
 
-class BreedListState extends _BreedEquatableState<Map<String, List<String>>> {
+class BreedListState extends BreedEquatableState<Map<String, List<String>>> {
   const BreedListState({required super.dogData});
 
   @override
@@ -20,8 +20,11 @@ class BreedListState extends _BreedEquatableState<Map<String, List<String>>> {
   }
 }
 
-class RandomDogImageState extends _BreedEquatableState<String> {
-  const RandomDogImageState({required super.dogData});
+class RandomDogImageState extends BreedEquatableState<String> {
+  const RandomDogImageState({
+    required super.dogData,
+    super.breed,
+  });
   @override
   String value({required String data}) {
     return data;
@@ -33,8 +36,11 @@ class RandomDogImageState extends _BreedEquatableState<String> {
   }
 }
 
-class DogImageListState extends _BreedEquatableState<List<String>> {
-  const DogImageListState({required super.dogData});
+class DogImageListState extends BreedEquatableState<List<String>> {
+  const DogImageListState({
+    required super.dogData,
+    super.breed,
+  });
   @override
   String value({required List<String> data}) {
     return data.toSet().toString();

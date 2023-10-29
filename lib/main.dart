@@ -28,10 +28,10 @@ class DogBreedApp extends StatelessWidget {
       final String title = args[DogImageListPage.keyTitle];
       routeWidget = DogImageListPage(dogData: dogData, title: title);
     } else if (settings.name == DogRandomImagePage.path) {
-      final args = (settings.arguments as Map<String, dynamic>?);
+      final args = (settings.arguments as Map<String, String>?);
       assert(args != null, 'Map arguments not provided for Random image page');
-      final path = args![DogRandomImagePage.path];
-      final String title = args[DogImageListPage.keyTitle];
+      final String path = args![DogRandomImagePage.keyPath] ?? '';
+      final String title = args[DogRandomImagePage.keyTitle] ?? '';
       routeWidget = DogRandomImagePage(imagePath: path, title: title);
     }
     return MaterialPageRoute(

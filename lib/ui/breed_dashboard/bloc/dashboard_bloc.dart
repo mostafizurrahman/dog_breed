@@ -31,7 +31,10 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
     final randomDogImage = RandomDogImageUsecase();
     final dog = await randomDogImage.call(event.breedEntity);
     if (dog != null) {
-      final breedsState = RandomDogImageState(dogData: dog);
+      final breedsState = RandomDogImageState(
+        dogData: dog,
+        breed: event.breedEntity,
+      );
       emitter(breedsState);
     } else {
       emitter(const DashboardErrorState());
@@ -45,7 +48,10 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
     final dogImageList = DogImageListUsecase();
     final dogs = await dogImageList.call(event.breedEntity);
     if (dogs != null) {
-      final breedsState = DogImageListState(dogData: dogs);
+      final breedsState = DogImageListState(
+        dogData: dogs,
+        breed: event.breedEntity,
+      );
       emitter(breedsState);
     } else {
       emitter(const DashboardErrorState());
