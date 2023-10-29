@@ -14,5 +14,5 @@ class DogImageListApi
 
   @override
   BaseModel mapResponse(Map<String, dynamic>? responseJson) =>
-      BreedListResponse.fromJson(responseJson ?? const {});
+      ImageListResponse.fromJson(responseJson ?? const {});
 }

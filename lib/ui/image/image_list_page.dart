@@ -1,7 +1,5 @@
 import 'package:dog_breed/domain/domain.dart';
 import 'package:dog_breed/ui/widgets/image_view.dart';
-import 'package:dog_breed/ui/widgets/theme_provider.dart';
-
 import 'package:flutter/material.dart';
 
 import '../widgets/dog_scaffold.dart';
@@ -27,11 +25,10 @@ class DogImageListPage extends StatefulWidget {
 
 class _ImageListState extends State<DogImageListPage> {
   List<String> get _dogs => widget.dogData.dogs;
-  late final double dimension;
+
   @override
   void initState() {
     super.initState();
-    dimension = MediaQuery.of(context).size.width / 2 - 48;
   }
 
   @override
@@ -46,19 +43,16 @@ class _ImageListState extends State<DogImageListPage> {
   }
 
   Widget _buildDogList(BuildContext context, int index) {
+    final double dimension = MediaQuery.of(context).size.width / 2 - 48;
+
     final dogImagePath = _dogs[index];
-    return Container(
-      width: dimension,
-      height: dimension,
-      decoration: ThemeProvider.shadow,
-      child: ClipRRect(
-        borderRadius: const BorderRadius.all(Radius.circular(1000)),
-        child: Ink(
-          child: InkWell(
-            child: ImageView(
-              dimension: dimension - 12,
-              imageUrl: dogImagePath,
-            ),
+    return Material(
+
+      child: Ink(
+        child: InkWell(
+          child: NetworkDogImage(
+            fixedWidth: dimension - 12,
+            imageUrl: dogImagePath,
           ),
         ),
       ),

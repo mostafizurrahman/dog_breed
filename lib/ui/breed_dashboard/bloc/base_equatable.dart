@@ -48,9 +48,14 @@ class DashboardLoadingState extends DashboardState {
   List<Object?> get props => [DateTime.now().millisecondsSinceEpoch];
 }
 
-abstract class _BreedEquatableState<T> extends DashboardState {
+abstract class BreedEquatableState<T> extends DashboardState {
+
+  final BreedEntity? breed;
   final DogData<T> dogData;
-  const _BreedEquatableState({required this.dogData});
+  const BreedEquatableState({
+    required this.dogData,
+    this.breed,
+  });
   @override
   List<Object?> get props => [
         value(data: dogData.dogs),

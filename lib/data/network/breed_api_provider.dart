@@ -75,7 +75,7 @@ class BreedApiProvider extends BaseApiProvider {
       final msg = '${options.method.toUpperCase()} API calling started with'
           ' end-point //${options.path}';
       final starter = NetworkEntity(
-        status: ApiStatus.complete,
+        status: ApiStatus.progress,
         message: msg,
         code: -1,
       );
