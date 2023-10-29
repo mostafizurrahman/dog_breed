@@ -8,9 +8,3 @@ class ApiEndPoint {
   static const String randomDogImageBreed = "breed/$keyBreedName/images/random";
   static const String randomDogImageSubBreed = "breed/$keyBreedName/$keySubBreedName/images/random";
 }
-
-//random breed image https://dog.ceo/api/breed/australian/images/random/5
-//random sub Breed image https://dog.ceo/api/breed/australian/shepherd/images/random/5
-
-//https://dog.ceo/api/breed/hound/afghan/images
-//https://dog.ceo/api/breed/hound/afghan/images
