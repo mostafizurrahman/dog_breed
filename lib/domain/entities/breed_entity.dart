@@ -1,3 +1,5 @@
+import 'package:dog_breed/ui/widgets/action_type.dart';
+
 class BreedEntity {
   final String breed;
   final String subBreed;

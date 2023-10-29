@@ -45,10 +45,7 @@ class _BreedDashboardState extends State<BreedDashboardPage> {
   @override
   Widget build(BuildContext context) {
     return DogScaffold(
-      body: BlocProvider.value(
-        value: _dashboardBloc,
-        child: _getBody(),
-      ),
+      body:  _getBody(),
     );
   }
 
@@ -68,7 +65,10 @@ class _BreedDashboardState extends State<BreedDashboardPage> {
     }
 
     if (state is BreedListState) {
-      return BreedListView(breedList: state.dogData as BreedList);
+      return BlocProvider.value(
+        value: _dashboardBloc,
+        child: BreedListView(breedList: state.dogData as BreedList),
+      );
     }
 
     return const SizedBox();

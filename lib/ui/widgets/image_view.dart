@@ -18,15 +18,21 @@ class ImageView extends StatelessWidget {
     return Container(
       decoration: ThemeProvider.circle,
       child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(dimension / 2)),
+        borderRadius: const BorderRadius.all(Radius.circular(1000)),
         child: Padding(
           padding: const EdgeInsets.all(4.0),
           child: CachedNetworkImage(
             width: dimension,
             height: dimension,
-            imageUrl: image,
+            imageUrl: imageUrl,
             progressIndicatorBuilder: (context, url, downloadProgress) =>
-                CircularProgressIndicator(value: downloadProgress.progress),
+                Padding(
+              padding: const EdgeInsets.all(6),
+              child: Center(
+                child:
+                    CircularProgressIndicator(value: downloadProgress.progress),
+              ),
+            ),
             errorWidget: (context, url, error) => const Icon(Icons.error),
           ),
         ),

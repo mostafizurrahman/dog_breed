@@ -33,7 +33,8 @@ class _BreedListState extends State<BreedListView> {
     final List<Widget> widgets = [const SizedBox(height: 8)];
     for (final dog in dogs.entries) {
       if (dog.value.isEmpty) {
-        widgets.add(DogBreedView(breedName: dog.key));
+        final breed = BreedEntity(breed: dog.key, subBreed: '');
+        widgets.add(DogBreedView(dogBreed: breed));
       } else {
         widgets.add(_getBreedRow(dog.key, dog.value));
       }
